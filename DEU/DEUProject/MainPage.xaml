@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:DEUProject" x:Class="DEUProject.MainPage">
-    <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="Handle_Clicked"/>
-    </TabbedPage.ToolbarItems>
-    
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:DEUProject" x:Class="DEUProject.MainPage">    
     <TabbedPage.Children>
         <ContentPage Title="DAP">
             <StackLayout>
-                <ListView ItemsSource="{Binding ModelDap}">
+                <ListView ItemsSource="{Binding ModelDap}"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding Updates}"
+                          IsPullToRefreshEnabled="true" 
+                          IsRefreshing="{Binding Ref}"
+                          ItemTapped="Handle_ItemTapped"
+                          >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -24,7 +26,13 @@
         </ContentPage>
         <ContentPage Title="Prime">
             <StackLayout>
-                <ListView ItemsSource="{Binding ModelPrime}">
+                <ListView ItemsSource="{Binding ModelPrime}"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding Updates}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding Ref}"
+                          ItemTapped="Handle_ItemTapped"
+                          >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

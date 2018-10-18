@@ -11,9 +11,10 @@ namespace DEUProject
     {
         MainViewModel viewModel;
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        async void Handle_Clicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            viewModel.Update();
+            await Task.CompletedTask;
         }
 
         public MainPage()
@@ -21,6 +22,11 @@ namespace DEUProject
             BindingContext = viewModel = new MainViewModel();
 
             InitializeComponent();
+        }
+
+        void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            Device.OpenUri(new Uri((e.Item as MainModel).Link));
         }
     }
 }

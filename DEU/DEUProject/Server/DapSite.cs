@@ -18,7 +18,9 @@ namespace DEUProject.Server
                 Encoding = Encoding.UTF8
             };
 
-            string link = "http://dap.deu.ac.kr/DapNoticeList.aspx";
+            string link = "https://dap.deu.ac.kr/DapNoticeList.aspx";
+
+            System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
 
             string str = wc.DownloadString(link);
 
@@ -42,7 +44,7 @@ namespace DEUProject.Server
                     }
                 }
                 var i = Regex.Split(Regex.Split(item, "<td class=\"text-left\">")[1], "</td>")[0];
-                nowarp.Link = Regex.Split(i, "<a href=\"")[1].Split('\"')[0];
+                nowarp.Link = "https://dap.deu.ac.kr/" + Regex.Split(i, "<a href=\"")[1].Split('\"')[0];
 
                 nowarp.Title = Regex.Split(i.Split('>')[1], "</a")[0];
                 

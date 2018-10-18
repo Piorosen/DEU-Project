@@ -150,5 +150,11 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DEUProject\DEUProject.csproj">
+      <Project>{CF293A73-44A8-47FC-AE81-881F67FC57D0}</Project>
+      <Name>DEUProject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
