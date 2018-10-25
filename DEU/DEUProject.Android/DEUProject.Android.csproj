@@ -91,5 +91,11 @@
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DEUProject\DEUProject.csproj">
+      <Project>{CF293A73-44A8-47FC-AE81-881F67FC57D0}</Project>
+      <Name>DEUProject</Name>
+    </ProjectReference>
+  </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
