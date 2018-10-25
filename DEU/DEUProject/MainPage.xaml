@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:DEUProject" x:Class="DEUProject.MainPage">
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DEUProject"
+    x:Class="DEUProject.MainPage"
+    Title="동의대학교 학교 행사"
+    >
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="Handle_Clicked"/>
     </TabbedPage.ToolbarItems>
