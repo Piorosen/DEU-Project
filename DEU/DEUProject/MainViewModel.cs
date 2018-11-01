@@ -39,7 +39,7 @@ namespace DEUProject
                 return new Command(async () => await Task.Run(() => Update() ));
             }
         }
-
+    
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnProperty(string name){
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -66,18 +66,7 @@ namespace DEUProject
             ModelDap = new ObservableCollection<MainModel>();
             ModelPrime = new ObservableCollection<MainModel>();
 
-            DapSite d = new DapSite();
-            PrimeSite p = new PrimeSite();
-
-
-            foreach (var item in d.GetSite()){
-                ModelDap.Add(item);
-            }
-            foreach (var item in p.GetSite())
-            {
-                ModelPrime.Add(item);
-            }
-
+            Updates.Execute(null);
 
         }
 
