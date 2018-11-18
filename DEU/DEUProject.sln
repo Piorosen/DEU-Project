@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEUProject.Android", "DEUPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEUProject.iOS", "DEUProject.iOS\DEUProject.iOS.csproj", "{084A1277-22DF-4685-8815-539CC6E9657D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEUProject", "DEUProject\DEUProject.csproj", "{CF293A73-44A8-47FC-AE81-881F67FC57D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEUProject", "DEUProject\DEUProject.csproj", "{CF293A73-44A8-47FC-AE81-881F67FC57D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,5 +104,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61504068-890F-49A1-9CB9-E23CD7BA1364}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 0.2
 	EndGlobalSection
 EndGlobal
