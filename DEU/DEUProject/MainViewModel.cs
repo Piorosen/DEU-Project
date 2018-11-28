@@ -18,6 +18,8 @@ namespace DEUProject
     {
         public ObservableCollection<MainModel> ModelDap { get; private set; }
         public ObservableCollection<MainModel> ModelPrime { get; private set; }
+        public ObservableCollection<MainModel> ModelLinc { get; private set; }
+
 
         bool _Ref = false;
         public bool Ref
@@ -50,6 +52,7 @@ namespace DEUProject
             Ref = true;
             var dap = new DapSite().GetSite();
             var prime = new PrimeSite().GetSite();
+            var linc = new LincplusSite().GetSite();
 
             ModelDap.Clear();
             foreach (var item in dap)
@@ -58,6 +61,10 @@ namespace DEUProject
             ModelPrime.Clear();
             foreach (var item in prime)
                 ModelPrime.Add(item);
+
+            foreach (var item in linc)
+                ModelLinc.Add(item);
+
             Ref = false;
         }
 
@@ -65,7 +72,7 @@ namespace DEUProject
         public MainViewModel(){
             ModelDap = new ObservableCollection<MainModel>();
             ModelPrime = new ObservableCollection<MainModel>();
-            new LincplusSite().GetSite();
+            ModelLinc = new ObservableCollection<MainModel>();
             Updates.Execute(null);
 
         }

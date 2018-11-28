@@ -49,5 +49,27 @@
                 </ListView>
             </StackLayout>
         </ContentPage>
+        <ContentPage Title="LincPlus">
+            <StackLayout>
+                <ListView ItemsSource="{Binding ModelLinc}"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding Updates}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding Ref}"
+                          ItemTapped="Handle_ItemTapped"
+                          >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Date}"/>
+                                    <Label Text="{Binding Title}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>

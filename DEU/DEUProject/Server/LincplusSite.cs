@@ -32,7 +32,7 @@ namespace DEUProject.Server
                     {
                         MainModel model = new MainModel();
 
-                       
+
                         var b = Regex.Split(Regex.Split(list[i], "javascript:document.location.href='")[1], "';\"");
                         tmp = b[0];
                         text = b[1];
@@ -44,7 +44,7 @@ namespace DEUProject.Server
                         model.Title = tmp;
                         model.Date = Regex.Split(Regex.Split(text, "<td class='text-center'>")[2], "</td>")[0];
 
-                        result.Add(model);  
+                        result.Add(model);
                     }
                 }
             }
