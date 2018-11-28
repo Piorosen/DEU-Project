@@ -65,7 +65,7 @@ namespace DEUProject
         public MainViewModel(){
             ModelDap = new ObservableCollection<MainModel>();
             ModelPrime = new ObservableCollection<MainModel>();
-
+            new LincplusSite().GetSite();
             Updates.Execute(null);
 
         }
