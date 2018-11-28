@@ -17,8 +17,7 @@ namespace DEUProject.Server
             request.Referer = $"https://lincplus.deu.ac.kr/Module/Board/Board_List.aspx?mc=28&RowNum=10&bno=3&ca1=0&ca2=0&sg=SC3&sk=&bk=&VIEW=N&PageNo={page}";
             request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
 
-            System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
-
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
             request.Headers.Add("authority", "lincplus.deu.ac.kr");
 
             using (var respond = request.GetResponse())
@@ -32,8 +31,8 @@ namespace DEUProject.Server
                     {
                         MainModel model = new MainModel();
 
-
                         var b = Regex.Split(Regex.Split(list[i], "javascript:document.location.href='")[1], "';\"");
+
                         tmp = b[0];
                         text = b[1];
 
