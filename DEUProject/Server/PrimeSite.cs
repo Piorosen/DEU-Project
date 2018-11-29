@@ -5,12 +5,13 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DEUProject.Server;
 
 namespace DEUProject
 {
-    class PrimeSite
+    class PrimeSite : ISite
     {
-        public List<MainModel> GetSite(bool bNotice = false)
+        public List<MainModel> GetSite(bool bNotice = false, int Page = 1)
         {
             WebClient wc = new WebClient();
             wc.Encoding = Encoding.UTF8;

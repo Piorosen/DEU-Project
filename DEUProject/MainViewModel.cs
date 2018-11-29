@@ -21,13 +21,40 @@ namespace DEUProject
         public ObservableCollection<MainModel> ModelLinc { get; private set; }
 
 
+        public Command Prev => new Command(() =>
+        {
+            Page -= 1;
+            Update(bNotice, Page);
+        });
+
+        public Command Next => new Command(() =>
+        {
+            Page += 1;
+            Update(bNotice, Page);
+        });
+
+        bool bNotice = false;
+        int _Page = 1;
+        int Page
+        {
+            set
+            {
+                if (1 <= value)
+                {
+                    _Page = value;
+                }
+                else
+                {
+                    _Page = 1;
+                }
+            }
+            get => _Page;
+        }
+
         bool _Ref = false;
         public bool Ref
         {
-            get
-            {
-                return _Ref;
-            }
+            get => _Ref;
             set
             {
                 _Ref = value;
@@ -35,24 +62,20 @@ namespace DEUProject
             }
         }
 
-        public Command Updates 
-        {
-            get {
-                return new Command(async () => await Task.Run(() => Update() ));
-            }
-        }
+        public Command Updates => new Command(async () => await Task.Run(() => Update() ));
+
     
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnProperty(string name){
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public void Update()
+        public void Update(bool bNotice = false, int Page = 1)
         {
             Ref = true;
-            var dap = new DapSite().GetSite();
-            var prime = new PrimeSite().GetSite();
-            var linc = new LincplusSite().GetSite();
+            var dap = new DapSite().GetSite(bNotice, Page);
+            var prime = new PrimeSite().GetSite(bNotice, Page);
+            var linc = new LincplusSite().GetSite(bNotice, Page);
 
             ModelDap.Clear();
             foreach (var item in dap)
@@ -62,6 +85,7 @@ namespace DEUProject
             foreach (var item in prime)
                 ModelPrime.Add(item);
 
+            ModelLinc.Clear();
             foreach (var item in linc)
                 ModelLinc.Add(item);
 

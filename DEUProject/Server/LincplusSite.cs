@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace DEUProject.Server
 {
-    public struct LincplusSite
+    public struct LincplusSite : ISite
     {
-        public List<MainModel> GetSite(bool bNotice = false, int page = 2)
+        public List<MainModel> GetSite(bool bNotice = false, int page = 1)
         {
             List<MainModel> result = new List<MainModel>();
 

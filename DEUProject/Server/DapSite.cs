@@ -9,9 +9,9 @@ using System.IO;
 
 namespace DEUProject.Server
 {
-    class DapSite
+    class DapSite : ISite
     {
-        public List<MainModel> GetSite(bool bNotice = false)
+        public List<MainModel> GetSite(bool bNotice = false, int Page = 1)
         {
             WebClient wc = new WebClient
             {

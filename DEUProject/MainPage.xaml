@@ -3,7 +3,13 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:DEUProject"
             x:Class="DEUProject.MainPage"
-            Title="동의대학교 행사 알림">    
+            Title="동의대학교 행사 알림">   
+    
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="&lt;" Command="{Binding Prev}"/>
+        <ToolbarItem Text="&gt;" Command="{Binding Next}"/>
+    </TabbedPage.ToolbarItems>
+    
     <TabbedPage.Children>
         <ContentPage Title="DAP">
             <StackLayout>
